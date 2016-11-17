@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,15 +22,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLV-0l-gLt" customClass="BackgroundVideo" customModule="SwiftVideoBackground">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLV-0l-gLt" customClass="BackgroundVideo" customModule="SwiftVideoBackground">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0za-fa-gRV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0za-fa-gRV">
                                 <rect key="frame" x="312" y="698" width="400" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hqf-Nr-czg"/>
+                                    <constraint firstAttribute="width" constant="400" id="ZX8-To-zEp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
                                 <state key="normal" title="Begin Pairing">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -38,15 +41,24 @@
                                     <segue destination="cSd-vN-zgs" kind="show" id="fzZ-mq-7fe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bridgit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQB-T5-HN0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bridgit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQB-T5-HN0">
                                 <rect key="frame" x="204" y="28" width="616" height="239"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="200"/>
                                 <color key="textColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jLV-0l-gLt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="17q-g4-R3V"/>
+                            <constraint firstItem="dQB-T5-HN0" firstAttribute="centerX" secondItem="0za-fa-gRV" secondAttribute="centerX" id="74t-Yt-ZG0"/>
+                            <constraint firstItem="jLV-0l-gLt" firstAttribute="centerX" secondItem="0za-fa-gRV" secondAttribute="centerX" id="P4W-OC-fYG"/>
+                            <constraint firstItem="jLV-0l-gLt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Svu-PF-5Oa"/>
+                            <constraint firstAttribute="bottom" secondItem="0za-fa-gRV" secondAttribute="bottom" constant="20" symbolic="YES" id="TYb-lx-6uq"/>
+                            <constraint firstItem="dQB-T5-HN0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hFG-oq-mP1"/>
+                            <constraint firstItem="jLV-0l-gLt" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ozd-zF-mB3"/>
+                            <constraint firstAttribute="trailing" secondItem="jLV-0l-gLt" secondAttribute="trailing" id="p85-Pu-Zhi"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundVideo" destination="jLV-0l-gLt" id="9Tu-ve-Hmg"/>
@@ -56,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="33.984375" y="39.84375"/>
         </scene>
-        <!--View Controller-->
+        <!--Pairing View Controller-->
         <scene sceneID="nWo-ap-BP7">
             <objects>
-                <viewController id="cSd-vN-zgs" sceneMemberID="viewController">
+                <viewController id="cSd-vN-zgs" customClass="PairingViewController" customModule="Bridgit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2XM-TX-o1w"/>
                         <viewControllerLayoutGuide type="bottom" id="YRM-1T-0IS"/>
@@ -67,12 +79,30 @@
                     <view key="view" contentMode="scaleToFill" id="ph3-rt-b7R">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Pair this App with the Desktop Daemon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGB-j2-Q2u">
+                                <rect key="frame" x="20" y="697" width="984" height="51"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LGB-j2-Q2u" firstAttribute="top" secondItem="2XM-TX-o1w" secondAttribute="bottom" constant="677" id="GK6-Ys-gan"/>
+                            <constraint firstAttribute="bottom" secondItem="LGB-j2-Q2u" secondAttribute="bottom" constant="20" symbolic="YES" id="OsD-bv-S9p"/>
+                            <constraint firstItem="LGB-j2-Q2u" firstAttribute="trailing" secondItem="ph3-rt-b7R" secondAttribute="trailingMargin" id="aDF-9M-FoC"/>
+                            <constraint firstItem="LGB-j2-Q2u" firstAttribute="leading" secondItem="ph3-rt-b7R" secondAttribute="leadingMargin" id="q2q-Qe-VyW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="LGB-j2-Q2u" id="CRN-Vm-08c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQM-7Z-mn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="40"/>
+            <point key="canvasLocation" x="891.79687499999989" y="39.84375"/>
         </scene>
     </scenes>
 </document>
