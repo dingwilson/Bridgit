@@ -9,6 +9,41 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>FBSDKShareKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>FacebookCore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>FacebookLogin.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>FacebookShare.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>Pods-Bridgit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -27,7 +62,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>31418D425B97E292FFAFC566D79FC144</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3DAD5208926B8F0E6C9D1167B7B79D16</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4EEC1A7E9A0D0F23B9CBFA486D206E9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>533607A808BC64912197562E016B6085</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5A0A28913A1212C2D1EACECBA1E58AC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +92,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8329B4DD82B7A073B34A61C9527865D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8590199C49EA642D1BB74CB7590348EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A6A187DAFE518464C706C56532C28D4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A8F77DC39F7D0CFE46DAA5C135D96A80</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B42608D82887AA3BCC368C04249FFE1F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9E474BCEB8670CE74763D54AC006B44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD707E469C8D0BEA816D740155A3B629</key>
 		<dict>
 			<key>primary</key>
 			<true/>

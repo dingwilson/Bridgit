@@ -9,5 +9,8 @@ target 'Bridgit' do
   pod 'SwiftVideoBackground'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
 end

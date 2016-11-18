@@ -29,6 +29,12 @@ class PairingViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         scanQRCode()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        captureSession?.stopRunning()
+    }
 
     func scanQRCode() {
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video

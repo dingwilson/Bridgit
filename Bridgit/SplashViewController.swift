@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftVideoBackground
+import FacebookCore
+import FacebookLogin
 
 class SplashViewController: UIViewController {
 
@@ -19,22 +21,47 @@ class SplashViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         backgroundVideo.createBackgroundVideo(name: "Background", type: "mp4", alpha: 0.5)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        if AccessToken.current != nil {
+            returnUserData()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func facebookLoginButtonPressed(_ sender: Any) {
+        let loginManager = LoginManager()
+        loginManager.logIn([ .publicProfile, .userFriends, .email ], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                self.returnUserData()
+            }
+        }
     }
-    */
-
+    
+    func returnUserData() {
+        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "email, name, picture"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)
+        
+        graphRequest.start() { response, result in
+            switch result {
+            case .failed(let error):
+                print(error)
+                
+            case .success(let graphResponse):
+                if let responseDictionary = graphResponse.dictionaryValue {
+                    UserDefaults.standard.set(responseDictionary["name"] as! String, forKey: "name")
+                    UserDefaults.standard.set(responseDictionary["email"] as! String, forKey: "email")
+                    let pictureUrlFB = responseDictionary["picture"] as! [String:Any]
+                    let photoData = pictureUrlFB["data"] as! [String:Any]
+                    UserDefaults.standard.set(photoData["url"] as! String, forKey: "imageUrl")
+                }
+                
+                self.performSegue(withIdentifier: "segueToCamera", sender: self)
+            }
+        }
+        
+        
+    }
 }
