@@ -12,6 +12,7 @@ import AVFoundation
 class PairingViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var connectButton: UIButton!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -24,14 +25,11 @@ class PairingViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
         // Do any additional setup after loading the view.
         
+        connectButton.isHidden = true
+        
         scanQRCode()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func scanQRCode() {
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
         // as the media type parameter.
@@ -76,15 +74,16 @@ class PairingViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             // Start video capture
             captureSession?.startRunning()
             
-            // Move the message label to the top view
+            // Move the message label and connection button to the top view
             view.bringSubview(toFront: messageLabel)
+            view.bringSubview(toFront: connectButton)
             
             // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()
             
             if let qrCodeFrameView = qrCodeFrameView {
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
+                qrCodeFrameView.layer.borderWidth = 5
                 view.addSubview(qrCodeFrameView)
                 view.bringSubview(toFront: qrCodeFrameView)
             }
@@ -101,7 +100,6 @@ class PairingViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No barcode/QR code is detected"
             return
         }
         
@@ -119,6 +117,7 @@ class PairingViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
+                connectButton.isHidden = false
             }
         }
     }
@@ -133,20 +132,12 @@ class PairingViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
             
         default:
-            
             print("FAIL")
         }
-        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func connectButtonPressed(_ sender: Any) {
+        UserDefaults.standard.set(messageLabel.text!, forKey: "connection")
+        performSegue(withIdentifier: "beginCreationSegue", sender: self)
     }
-    */
-
 }
