@@ -42,7 +42,7 @@ class CameraViewController: UIViewController {
         super.viewWillAppear(animated)
         
         captureSession = AVCaptureSession()
-        captureSession!.sessionPreset = AVCaptureSessionPreset1920x1080
+        captureSession!.sessionPreset = AVCaptureSessionPreset640x480
         
         let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -70,7 +70,7 @@ class CameraViewController: UIViewController {
                 
                 captureSession!.startRunning()
                 
-                self.checkTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.takePhoto), userInfo: nil, repeats: true)
+                self.checkTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.takePhoto), userInfo: nil, repeats: true)
                 
                 self.runTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.iterateTime), userInfo: nil, repeats: true)
             }
@@ -101,7 +101,7 @@ class CameraViewController: UIViewController {
                     let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     
                     if UserDefaults.standard.bool(forKey: "runScan") {
-                        //self.analyzeImage(image: image)
+                        self.analyzeImage(image: image)
                     }
                 }
             })
@@ -119,11 +119,25 @@ class CameraViewController: UIViewController {
     func analyzeImage(image: UIImage) {
         uploadToImgur(image: image){success, url in
             if success {
-                let url2 = "https://api.openalpr.com/v1/recognize?secret_key=sk_16a5bb91ed6618bd1d833d86&tasks=plate&country=us&image_url=\(url)"
-                Alamofire.request(url2, method: .post).responseJSON { response in
-                    debugPrint(response)
-                    print(response);
+                let stringUrl = "\(url)"
+                let index = stringUrl.index(stringUrl.startIndex, offsetBy: 19)
+                let fixedUrl = stringUrl.substring(from: index)
+//                let parameters: Parameters = ["url": fixedUrl]
+                
+                Alamofire.request("https://7dc77a8e.ngrok.io/license/" + fixedUrl).responseString { response in
+                    print(response)
                 }
+                
+                
+                
+                
+                
+                
+//                let url2 = "https://api.openalpr.com/v1/recognize?secret_key=sk_16a5bb91ed6618bd1d833d86&tasks=plate&country=us&image_url=\(url)"
+//                Alamofire.request(url2, method: .post).responseJSON { response in
+//                    debugPrint(response)
+//                    print(response);
+                //}
             }
         }
     }

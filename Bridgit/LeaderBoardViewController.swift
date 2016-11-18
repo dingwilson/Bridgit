@@ -18,6 +18,11 @@ class LeaderBoardViewController: UIViewController {
     
     var ref: FIRDatabaseReference!
 
+    @IBOutlet weak var imageView1: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
+    @IBOutlet weak var imageView3: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,10 +34,28 @@ class LeaderBoardViewController: UIViewController {
     }
     
     func getData() {
-        ref.observe(FIRDataEventType.value, with: { (snapshot) in
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            print(postDict)
+        ref.child("users").observe(.childAdded, with: { (snapshot) -> Void in
+            let key = snapshot.key
+            let value = snapshot.value as? NSDictionary
+            
+            let name : String = value!.value(forKey: "name") as! String
+            let point : Int = value!.value(forKey: "point") as! Int
+            print(name)
+            print(point)
+//            self.FirebaseSharedDatabase[key] = DatabaseObject(n: name, a: age)// Adds the Database object to the dictionary
+//            label.text = String(self.FirebaseSharedDatabase.count)
         })
+        
+//        ref.child("users").observe(FIRDataEventType.value, with: { (snapshot) in
+//            let key = snapshot.key
+//            let value = snapshot.value as? NSDictionary
+//            print(value)
+////            let name : String = value!.value(forKey: "name") as! String
+////            let point : Int = value!.value(forKey: "point") as! Int
+//////            let points : Int = value!.value(forKey)
+//        
+//            
+//        })
     }
     
     func saveValues() {
