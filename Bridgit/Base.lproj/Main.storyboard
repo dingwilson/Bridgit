@@ -81,12 +81,27 @@
                     <view key="view" contentMode="scaleToFill" id="qxp-PI-4jr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmZ-SO-jnV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qmZ-SO-jnV" firstAttribute="top" secondItem="qxp-PI-4jr" secondAttribute="top" id="UGT-Cy-REB"/>
+                            <constraint firstItem="qmZ-SO-jnV" firstAttribute="bottom" secondItem="tMj-w4-Nmv" secondAttribute="top" id="dlc-o1-oNg"/>
+                            <constraint firstAttribute="trailing" secondItem="qmZ-SO-jnV" secondAttribute="trailing" id="eze-q7-yxc"/>
+                            <constraint firstItem="qmZ-SO-jnV" firstAttribute="leading" secondItem="qxp-PI-4jr" secondAttribute="leading" id="fRD-Ne-6Kw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="previewView" destination="qmZ-SO-jnV" id="O91-M0-pb4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xd4-Md-NTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="39"/>
+            <point key="canvasLocation" x="1040.8" y="38.23088455772114"/>
         </scene>
     </scenes>
     <resources>
