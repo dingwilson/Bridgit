@@ -63,14 +63,71 @@
                     </view>
                     <connections>
                         <outlet property="backgroundVideo" destination="jLV-0l-gLt" id="9Tu-ve-Hmg"/>
-                        <segue destination="pSo-IU-lBt" kind="show" identifier="segueToCamera" id="YvK-Pl-GlX"/>
+                        <segue destination="Eyj-l6-QqR" kind="show" identifier="segueToCamera" id="KfH-mz-7Yl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="38.23088455772114"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="lnR-0u-eKS">
+            <objects>
+                <tabBarController id="Eyj-l6-QqR" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="kop-Os-Udg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pSo-IU-lBt" kind="relationship" relationship="viewControllers" id="uja-Al-OYY"/>
+                        <segue destination="she-Jv-MyJ" kind="relationship" relationship="viewControllers" id="jD7-Pi-58c"/>
+                        <segue destination="GZc-hb-rts" kind="relationship" relationship="viewControllers" id="khY-VV-KcY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lWM-5Q-tLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="37"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="fSY-XO-DwG">
+            <objects>
+                <viewController id="GZc-hb-rts" customClass="UserSettingsViewController" customModule="Bridgit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ttY-RJ-gar"/>
+                        <viewControllerLayoutGuide type="bottom" id="wxR-JN-YwL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ggk-9Q-bvs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="User" image="User" id="G4j-mx-14g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7U-5Y-qqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2166" y="150"/>
+        </scene>
+        <!--Leaderboards-->
+        <scene sceneID="mVu-4T-LB2">
+            <objects>
+                <viewController id="she-Jv-MyJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TuI-cD-Id2"/>
+                        <viewControllerLayoutGuide type="bottom" id="qxi-O2-F7k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fqC-Bc-Bzr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Leaderboards" image="HighScores" id="BdR-0S-1ba"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNS-7D-LSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2166" y="-572"/>
+        </scene>
+        <!--Record-->
         <scene sceneID="6A9-wH-BIa">
             <objects>
                 <viewController id="pSo-IU-lBt" customClass="CameraViewController" customModule="Bridgit" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmZ-SO-jnV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -95,16 +152,20 @@
                             <constraint firstItem="qmZ-SO-jnV" firstAttribute="leading" secondItem="qxp-PI-4jr" secondAttribute="leading" id="fRD-Ne-6Kw"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Record" image="Video" id="6pv-sh-BaM"/>
                     <connections>
                         <outlet property="previewView" destination="qmZ-SO-jnV" id="O91-M0-pb4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xd4-Md-NTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.8" y="38.23088455772114"/>
+            <point key="canvasLocation" x="2166" y="-1289"/>
         </scene>
     </scenes>
     <resources>
+        <image name="HighScores" width="24" height="24"/>
+        <image name="User" width="24" height="24"/>
+        <image name="Video" width="24" height="24"/>
         <image name="title" width="362" height="100"/>
     </resources>
 </document>

@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -82,6 +87,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4332352E97A37C729DC7D9B3B8A4BB15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4EEC1A7E9A0D0F23B9CBFA486D206E9C</key>
 		<dict>
 			<key>primary</key>
@@ -112,7 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>873B1A0D84F1FF2C0ECD8A2440705B43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>92BB131FA876445E027D20AE23EA7B5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>999E8B0893B53E98D582D82D87F08E70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,6 +162,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BD981274CCDB79120832D1844EAFB482</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C9E474BCEB8670CE74763D54AC006B44</key>
 		<dict>
 			<key>primary</key>
@@ -153,6 +178,11 @@
 			<true/>
 		</dict>
 		<key>DD707E469C8D0BEA816D740155A3B629</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E40DFE8B61780230895489A6ADF502AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

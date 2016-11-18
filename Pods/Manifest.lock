@@ -6,6 +6,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Eureka (2.0.0-beta.1)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -54,6 +55,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Eureka (~> 2.0.0-beta.1)
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -64,6 +66,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
@@ -81,6 +84,6 @@ SPEC CHECKSUMS:
   SwiftVideoBackground: c0253281fcda5047c36067cbb852d8061513058b
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 160ec612c4d2f15cc1048c2fae72934a8806d41b
+PODFILE CHECKSUM: 57921279cd3d14c6371d39bfda2cd486c7916507
 
 COCOAPODS: 1.1.0.rc.2

@@ -13,5 +13,6 @@ target 'Bridgit' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'Firebase/Database'
+  pod 'Eureka', '~> 2.0.0-beta.1'
 
 end

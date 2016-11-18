@@ -21,10 +21,6 @@ class SplashViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         backgroundVideo.createBackgroundVideo(name: "Background", type: "mp4", alpha: 0.5)
-        
-        if AccessToken.current != nil {
-            returnUserData()
-        }
     }
     
     @IBAction func facebookLoginButtonPressed(_ sender: Any) {
@@ -53,9 +49,7 @@ class SplashViewController: UIViewController {
                 if let responseDictionary = graphResponse.dictionaryValue {
                     UserDefaults.standard.set(responseDictionary["name"] as! String, forKey: "name")
                     UserDefaults.standard.set(responseDictionary["email"] as! String, forKey: "email")
-                    let pictureUrlFB = responseDictionary["picture"] as! [String:Any]
-                    let photoData = pictureUrlFB["data"] as! [String:Any]
-                    UserDefaults.standard.set(photoData["url"] as! String, forKey: "imageUrl")
+                    UserDefaults.standard.set(responseDictionary["id"] as! String, forKey: "id")
                 }
                 
                 self.performSegue(withIdentifier: "segueToCamera", sender: self)

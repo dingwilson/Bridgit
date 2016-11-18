@@ -23,8 +23,6 @@ class CameraViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        saveValues()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,20 +100,6 @@ class CameraViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer!.frame = previewView.bounds
-    }
-
-    func saveValues() {
-        if let savedName = UserDefaults.standard.string(forKey: "name") {
-            print(savedName)
-        }
-        
-        if let savedEmail = UserDefaults.standard.string(forKey: "email") {
-            print(savedEmail)
-        }
-        
-        if let savedImage = UserDefaults.standard.string(forKey: "imageUrl") {
-            print(savedImage)
-        }
     }
 
     func uploadToImgur(image: UIImage, completionHandler:@escaping (Bool, URL) -> ()){
