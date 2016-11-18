@@ -50,6 +50,7 @@ class SplashViewController: UIViewController {
                     UserDefaults.standard.set(responseDictionary["name"] as! String, forKey: "name")
                     UserDefaults.standard.set(responseDictionary["email"] as! String, forKey: "email")
                     UserDefaults.standard.set(responseDictionary["id"] as! String, forKey: "id")
+                    UserDefaults.standard.set(true, forKey: "runScan")
                 }
                 
                 self.performSegue(withIdentifier: "segueToCamera", sender: self)

@@ -20,6 +20,8 @@ class CameraViewController: UIViewController {
     var previewLayer: AVCaptureVideoPreviewLayer?
     
     var checkTimer: Timer!
+    
+    var runTimer: Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,8 @@ class CameraViewController: UIViewController {
                 captureSession!.startRunning()
                 
                 self.checkTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.takePhoto), userInfo: nil, repeats: true)
+                
+                self.runTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.iterateTime), userInfo: nil, repeats: true)
             }
         }
     }
@@ -73,7 +77,9 @@ class CameraViewController: UIViewController {
                     
                     let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     
-                    self.analyzeImage(image: image)
+                    if UserDefaults.standard.bool(forKey: "runScan") {
+                        self.analyzeImage(image: image)
+                    }
                 }
             })
         }
@@ -95,6 +101,7 @@ class CameraViewController: UIViewController {
         super.viewWillDisappear(animated)
         captureSession!.stopRunning()
         self.checkTimer.invalidate()
+        self.runTimer.invalidate()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -15,6 +15,7 @@ class UserSettingsViewController: FormViewController {
     var savedEmail : String?
     var savedImage : String?
     var savedId : String?
+    var runScan : Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +39,38 @@ class UserSettingsViewController: FormViewController {
                     var header = HeaderFooterView<UIView>(.callback({
                         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 250))
                         let imageView = UIImageView(image: UIImage(named: "transparenticon"))
-                        imageView.contentMode = .scaleAspectFit
-                        imageView.imageFromUrl(urlString: "http://graph.facebook.com/\(self.savedId)/picture?type=large")
+                        imageView.contentMode = .scaleAspectFill
+                        imageView.imageFromUrl(urlString: "http://graph.facebook.com/\(self.savedId!)/picture?type=large")
                         imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 250)
                         view.addSubview(imageView)
                         return view
                     }))
-                    header.height = { 100 }
+                    header.height = { 250 }
                     return header
                 }()
             }
-        +++ Section("\(savedName)")
+        +++ Section("Personal Details")
+            <<< TextRow(){ row in
+                row.title = "Name"
+                row.value = "\(savedName!)"
+            }
+            <<< EmailRow(){
+                $0.title = "Email"
+                $0.value = "\(savedEmail!)"
+            }
+        
+        +++ Section("User Settings")
+            <<< SwitchRow() {
+                $0.title = "Run License Plate Recognition"
+                $0.value = runScan
+                }.onChange { row in
+                    if row.value! {
+                        UserDefaults.standard.set(true, forKey: "runScan")
+                    }
+                    else {
+                        UserDefaults.standard.set(false, forKey: "runScan")
+                    }
+            }
     }
     
     func saveValues() {
@@ -61,8 +83,10 @@ class UserSettingsViewController: FormViewController {
         }
         
         if let savedId = UserDefaults.standard.string(forKey: "id") {
-            print(savedId)
+            self.savedId = savedId
         }
+
+        self.runScan = UserDefaults.standard.bool(forKey: "runScan")
     }
 
     /*

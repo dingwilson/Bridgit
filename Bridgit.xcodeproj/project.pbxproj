@@ -17,6 +17,7 @@
 		C896CA241DDEF17F0001B211 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C896CA231DDEF17F0001B211 /* CameraViewController.swift */; };
 		C896CA261DDEFD490001B211 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C896CA251DDEFD490001B211 /* GoogleService-Info.plist */; };
 		C89C2AB71DDF3B6D001A1C87 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C2AB61DDF3B6D001A1C87 /* UserSettingsViewController.swift */; };
+		C89C2ABD1DDF51A8001A1C87 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C2ABC1DDF51A8001A1C87 /* LeaderBoardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		C896CA231DDEF17F0001B211 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C896CA251DDEFD490001B211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C89C2AB61DDF3B6D001A1C87 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		C89C2ABC1DDF51A8001A1C87 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		EB2540448E822E0A8B1931AA /* Pods-Bridgit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridgit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bridgit/Pods-Bridgit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				C8639ACF1DDE61160071BF3D /* AppDelegate.swift */,
 				C8639AE31DDE63BC0071BF3D /* SplashViewController.swift */,
 				C896CA231DDEF17F0001B211 /* CameraViewController.swift */,
+				C89C2ABC1DDF51A8001A1C87 /* LeaderBoardViewController.swift */,
 				C89C2AB61DDF3B6D001A1C87 /* UserSettingsViewController.swift */,
 				C8639AD61DDE61160071BF3D /* Assets.xcassets */,
 				C8639AD31DDE61160071BF3D /* Main.storyboard */,
@@ -230,6 +233,7 @@
 				C8639AD01DDE61160071BF3D /* AppDelegate.swift in Sources */,
 				C896CA241DDEF17F0001B211 /* CameraViewController.swift in Sources */,
 				C8639AE41DDE63BC0071BF3D /* SplashViewController.swift in Sources */,
+				C89C2ABD1DDF51A8001A1C87 /* LeaderBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
