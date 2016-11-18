@@ -78,8 +78,8 @@ class CameraViewController: UIViewController {
     }
     
     func getData() {
-        if let savedEmail = UserDefaults.standard.string(forKey: "email") {
-            ref.child("users").child("\(savedEmail)").observeSingleEvent(of: .value, with: { (snapshot) in
+        if let savedId = UserDefaults.standard.string(forKey: "id") {
+            ref.child("users").child("\(savedId)").observeSingleEvent(of: .value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 print(value)
                 
@@ -110,6 +110,10 @@ class CameraViewController: UIViewController {
     
     func iterateTime() {
         currentMinutes = currentMinutes + 1
+        
+        if let savedId = UserDefaults.standard.string(forKey: "id") {
+            self.ref.child("users").child("\(savedId)").setValue(currentMinutes)
+        }
     }
     
     func analyzeImage(image: UIImage) {
