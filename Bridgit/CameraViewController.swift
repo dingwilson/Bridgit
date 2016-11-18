@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
+import SwiftyJSON
 
 class CameraViewController: UIViewController {
     
@@ -22,16 +24,14 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
-            saveValues()
+        saveValues()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         captureSession = AVCaptureSession()
-        captureSession!.sessionPreset = AVCaptureSessionPreset352x288
+        captureSession!.sessionPreset = AVCaptureSessionPreset1920x1080
         
         let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -59,7 +59,7 @@ class CameraViewController: UIViewController {
                 
                 captureSession!.startRunning()
                 
-                self.checkTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.takePhoto), userInfo: nil, repeats: true)
+                self.checkTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.takePhoto), userInfo: nil, repeats: true)
             }
         }
     }
@@ -82,7 +82,15 @@ class CameraViewController: UIViewController {
     }
     
     func analyzeImage(image: UIImage) {
-        
+        uploadToImgur(image: image){success, url in
+            if success {
+                let url2 = "https://api.openalpr.com/v1/recognize?secret_key=sk_16a5bb91ed6618bd1d833d86&tasks=plate&country=us&image_url=\(url)"
+                Alamofire.request(url2, method: .post).responseJSON { response in
+                    debugPrint(response)
+                    print(response);
+                }
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -95,8 +103,6 @@ class CameraViewController: UIViewController {
         super.viewDidAppear(animated)
         previewLayer!.frame = previewView.bounds
     }
-    
-    
 
     func saveValues() {
         if let savedName = UserDefaults.standard.string(forKey: "name") {
@@ -112,5 +118,35 @@ class CameraViewController: UIViewController {
         }
     }
 
+    func uploadToImgur(image: UIImage, completionHandler:@escaping (Bool, URL) -> ()){
+        let imageData = UIImageJPEGRepresentation(image, 1.0)!
+        let base64Image = imageData.base64EncodedString(options: [])
+
+        let headers = [
+            "Content-Type": "multipart/form-data",
+            "Authorization": "Client-ID d3ca4314706c161"
+        ]
+
+        let urlRequest = try! URLRequest(url: "https://api.imgur.com/3/image", method: .post, headers: headers)
+
+        Alamofire.upload( multipartFormData: { multipartFormData in
+            multipartFormData.append(base64Image.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "image")
+        }, with: urlRequest, encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    let json = JSON(data: response.data!)
+                    print(json)
+                    if let link = json["data"]["link"].string {
+                        let url = URL(string: link)!
+                        completionHandler(true, url)
+                    }
+                }
+            case .failure(let encodingError):
+                print(encodingError)
+                completionHandler(false, URL(string: "www.wilsonding.com")!)
+            }
+        })
+    }
 
 }

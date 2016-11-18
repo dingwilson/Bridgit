@@ -44,6 +44,11 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>Pods-Bridgit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -62,6 +67,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1047D97A989FD63127F0DA5D0699359C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>31418D425B97E292FFAFC566D79FC144</key>
 		<dict>
 			<key>primary</key>
@@ -102,6 +112,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>92BB131FA876445E027D20AE23EA7B5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A78F46C45B8558231D84B32E2F36BD6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
 		<dict>
 			<key>primary</key>
@@ -123,6 +143,11 @@
 			<true/>
 		</dict>
 		<key>C9E474BCEB8670CE74763D54AC006B44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC7ED5D0786556F4D47245AE370D1710</key>
 		<dict>
 			<key>primary</key>
 			<true/>

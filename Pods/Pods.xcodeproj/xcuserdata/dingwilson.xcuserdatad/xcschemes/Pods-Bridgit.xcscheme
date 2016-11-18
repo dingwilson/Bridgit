@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A6A187DAFE518464C706C56532C28D4C'
+               BlueprintIdentifier = '1047D97A989FD63127F0DA5D0699359C'
                BlueprintName = 'Pods-Bridgit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-Bridgit.framework'>
