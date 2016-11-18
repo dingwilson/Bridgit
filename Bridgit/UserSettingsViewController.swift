@@ -13,7 +13,6 @@ class UserSettingsViewController: FormViewController {
     
     var savedName : String?
     var savedEmail : String?
-    var savedImage : String?
     var savedId : String?
     var runScan : Bool!
 

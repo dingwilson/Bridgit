@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bridgit/UserSettingsViewController.swift"
-            timestampString = "501174153.471238"
+            timestampString = "501176138.565628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "imageFromUrl(urlString:)"
             landmarkType = "7">
          </BreakpointContent>

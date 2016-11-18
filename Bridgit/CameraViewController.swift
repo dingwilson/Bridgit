@@ -10,14 +10,19 @@ import UIKit
 import AVFoundation
 import Alamofire
 import SwiftyJSON
+import Firebase
 
 class CameraViewController: UIViewController {
     
     @IBOutlet weak var previewView: UIView!
     
+    var ref: FIRDatabaseReference!
+    
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
+    
+    var currentMinutes: Int!
     
     var checkTimer: Timer!
     
@@ -25,6 +30,12 @@ class CameraViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentMinutes = 0
+        
+        ref = FIRDatabase.database().reference()
+        
+        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +77,18 @@ class CameraViewController: UIViewController {
         }
     }
     
+    func getData() {
+        if let savedEmail = UserDefaults.standard.string(forKey: "email") {
+            ref.child("users").child("\(savedEmail)").observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                print(value)
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     func takePhoto() {
         if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
             videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
@@ -78,11 +101,15 @@ class CameraViewController: UIViewController {
                     let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     
                     if UserDefaults.standard.bool(forKey: "runScan") {
-                        self.analyzeImage(image: image)
+                        //self.analyzeImage(image: image)
                     }
                 }
             })
         }
+    }
+    
+    func iterateTime() {
+        currentMinutes = currentMinutes + 1
     }
     
     func analyzeImage(image: UIImage) {
